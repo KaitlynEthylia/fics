@@ -1,0 +1,20 @@
+---
+layout: common
+css: list
+pagination:
+  data: fics
+  size: 1
+  alias: fic
+permalink: "{{ fic | slug }}/index.html"
+fics:
+- WataOshi
+summaries:
+  WataOshi: "Fanfics about the Japanense lightnovel series \"I'm In Love With the
+    Villainess\", by Inori. Also known as 'WataOshi' after the Japanese name
+    for the series: \"Watashi no Oshi wa Akuyaku Reijou\" (私の推しは悪役令嬢) "
+---
+<h1>{{ fic }}</h1>
+<section>
+	{{ summaries[fic] }}
+</section>
+{% render 'list', site: site, list: collections.fic | where: 'data.fic', fic %}

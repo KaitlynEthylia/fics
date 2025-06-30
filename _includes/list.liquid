@@ -1,0 +1,14 @@
+<ul>
+{% assign sorted = list | sort: "data.date" | reverse %}
+{%- for fic in sorted %}
+	<li {% if tagged %}style="--colour:{{ fic.data.colour }}"{% endif %}>
+		<h2><a href="{{ site.prefix }}/{{ fic.data.fic }}/{{ fic.data.title | slugify }}" >{{ fic.data.title }}</a></h2>
+	<time datetime="{{ date }}">{{ fic.data.date | date: "%Y-%m-%d" }}</time>
+	{% if tagged %}
+		<a class="tag" href="{{ site.prefix }}/{{ fic.data.fic }}" style="--color:{{ fic.data.colour }}">{{ fic.data.fic }}</a>
+	{% endif %}
+	{% assign summary = fic.content | split: "</h2>" %}
+	<summary>{{ summary[1] | slice: 0,300 }}...</summary>
+	</li>
+{% endfor -%}
+</ul>

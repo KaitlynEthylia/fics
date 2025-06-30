@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="{{ site.prefix }}/styles/style.css">
+	{%- for file in css -%}
+		<link rel="stylesheet" href="{{ site.prefix }}/styles/{{ file }}.css">
+	{%- endfor %}
+	<title>{{ title }}</title>
+</head>
+<body>
+	<header>
+		<a href="{{ site.prefix }}/"><h1>Fics by KaitlynEthylia</h1></a>
+		<nav>
+			<a href="{{ site.prefix }}/">Fics</a>
+			<a href="{{ site.prefix }}/about">About</a>
+			<a href="https://github.com/KaitlynEthylia/fics">GitHub</a>
+		</nav>
+	</header>
+	<hr>
+	<main>
+		{{- content -}}
+	</main>
+	<footer>
+	</footer>
+</body>
+</html>

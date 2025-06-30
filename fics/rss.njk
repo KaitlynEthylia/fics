@@ -1,0 +1,21 @@
+---
+permalink: "/rss.xml"
+---
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0">
+<channel>
+	<title>KaitlynEthylia Fics</title>
+	<link>https://{{ site.url }}{{ site.prefix }}</link>
+	<description>TODO</description>
+	{% set sorted = collections.fic | sort(attribute='data.date') | reverse %}
+	{%- for fic in sorted %}
+	<item>
+		<title>{{ fic.data.title }}</title>
+		<category>{{ fic.data.fic | capitalize }}</category>
+		<link>https://{{ site.url }}{{ site.prefix }}/{{ fic.data.fic }}/{{ fic.data.title | slugify }}</link>
+		<description>{{ fic.content }}...</description>
+		<pubDate>{{ fic.data.date.toUTCString() }}</pubDate>
+	</item>
+	{%- endfor %}
+</channel>
+</rss>

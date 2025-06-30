@@ -1,0 +1,12 @@
+node_modules/
+_site/
+serve.sh
+
+fanfics/*/*
+!fanfics/*/*.json
+!fanfics/*/*.md
+fanfics/*/*-WIP.md
+
+.env
+
+TODO.txt
